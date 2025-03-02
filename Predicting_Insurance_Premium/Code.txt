@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn import linear_model
+
+df=pd.read_csv(r"D:/Angel-Has-Fallen/Linear model/Multiple variable/Insurance.csv")
+df
+
+mean_height=df.height.mean()
+mean_height
+
+df.height
+
+df.height.fillna(mean_height)
+
+df
+
+df.height=df.height.fillna(mean_height)
+
+df
+reg=linear_model.LinearRegression()
+
+reg.fit(df[['age', 'height', 'weight']], df['premium'])
+
+reg.predict([[27, 165.56, 60]])
+
+df
+
