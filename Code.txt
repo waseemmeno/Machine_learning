@@ -1,0 +1,17 @@
+import pandas as pd
+from sklearn import linear_model
+
+df=pd.read_csv(r"D:\Angel-Has-Fallen\Linear model\One-variable\house_prices_with_nulls.csv")
+df
+
+mean_Size=df.Size.mean()
+mean_Size
+
+df['Size'] = df['Size'].fillna(mean_Size)  # Fill NaN with mean
+df
+
+reg=linear_model.LinearRegression()
+
+reg.fit(df[['Size']], df['Price'])
+
+reg.predict([[900]])
